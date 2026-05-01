@@ -9,9 +9,28 @@ const pixelFont = Press_Start_2P({
   display: "swap",
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.chomtana.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "HBD CHOMTANA",
-  description: "An 8-bit birthday card for Chomtana",
+  description:
+    "An 8-bit birthday card for Chomtana. Lv. 25 ▶ 26 — press start to open.",
+  openGraph: {
+    type: "website",
+    title: "★ HAPPY BIRTHDAY CHOMTANA! ★",
+    description:
+      "An 8-bit birthday card for Chomtana. Lv. 25 ▶ 26 — press start to open.",
+    siteName: "HBD CHOMTANA",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "★ HAPPY BIRTHDAY CHOMTANA! ★",
+    description:
+      "An 8-bit birthday card for Chomtana. Lv. 25 ▶ 26 — press start to open.",
+  },
 };
 
 export default function RootLayout({
