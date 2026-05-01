@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #1a1c2c;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: #feeed8;
+  font-family: var(--font-pixel), "Press Start 2P", monospace;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  image-rendering: pixelated;
+  overscroll-behavior: none;
+}
+
+* {
+  image-rendering: pixelated;
+}
+
+@layer utilities {
+  .pixel-shadow {
+    box-shadow:
+      4px 0 0 0 #262b44,
+      0 4px 0 0 #262b44,
+      4px 4px 0 0 #262b44;
+  }
+  .pixel-shadow-sm {
+    box-shadow:
+      2px 0 0 0 #262b44,
+      0 2px 0 0 #262b44,
+      2px 2px 0 0 #262b44;
+  }
+  .text-pixel-shadow {
+    text-shadow:
+      2px 2px 0 #262b44,
+      4px 4px 0 rgba(38, 43, 68, 0.4);
+  }
+  .text-pixel-shadow-pink {
+    text-shadow:
+      2px 2px 0 #ad2f7e,
+      4px 4px 0 rgba(173, 47, 126, 0.5);
+  }
+  .crt::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.18) 0px,
+        rgba(0, 0, 0, 0.18) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+    z-index: 50;
+    mix-blend-mode: multiply;
+  }
+  .crt::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 55%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+    z-index: 51;
+  }
+  .scanline-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 8px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent
+    );
+    pointer-events: none;
+    z-index: 49;
+    animation: scanline 6s linear infinite;
+  }
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: #ff77a8;
+  color: #1a1c2c;
+}
